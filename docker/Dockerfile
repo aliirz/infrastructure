@@ -5,6 +5,10 @@ MAINTAINER Ashar Rizqi <asharrizqi@gmail.com>
 run echo "deb http://archive.ubuntu.com/ubuntu precise main universe" >> /etc/apt/sources.list
 run apt-get update
 
+#change working directory
+WORKDIR /usr/local/
+RUN git clone https://github.com/codeforpakistan/infrastructure.git
+
 #setup tools and python
 RUN \
   apt-get install -y tar \
@@ -36,7 +40,7 @@ RUN \
   rm -rf /var/lib/apt/lists/* 
 
 # symlink conf dir
-RUN ln -s <full path to nginx conf file on parent host> /etc/nginx/sites-enabled/
+RUN ln -s /usr/loca/infrastructure/conf/nginx/nginx.conf /etc/nginx/sites-enabled/
 RUN unlink /etc/nginx/sites-enabled/default
 
 # Define mountable directories.
@@ -47,9 +51,6 @@ EXPOSE 80
 EXPOSE 443
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
-WORKDIR /usr/local/
-RUN git clone https://github.com/codeforpakistan/infrastructure.git
 
 RUN mkdir -p /var/log/uwsgi/
 RUN touch /var/log/uwsgi/uwsgi.log
