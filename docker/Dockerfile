@@ -59,7 +59,7 @@ RUN touch /usr/local/run.sh
 RUN chmod 755 /usr/local/run.sh
 #RUN echo "#!/bin/bash\nuwsgi --socket 127.0.0.1:8080 --chdir /usr/local/infrastructure/apps/example/ --module app --callable app --processes 1 --daemonize /var/log/uwsgi/uwsgi.log;nginx;" >> /usr/local/run.sh
 
-RUN echo "#!/bin/bash\nuwsgi --ini /usr/local/infrastructure/conf/uwsgi/uwsgi.conf" >> /usr/local/run.sh
+RUN echo "#!/bin/bash\nuwsgi --ini /usr/local/infrastructure/conf/uwsgi/uwsgi.ini;nginx;" >> /usr/local/run.sh
 
 CMD ["/usr/local/run.sh"]
 
