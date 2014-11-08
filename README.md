@@ -20,7 +20,7 @@ $ sudo docker build -t="arizqi/app:v1" .
 #this will spit out an image id
 
 #Run#
-$ sudo docker run -t -d -p 80:80 -v /etc/odai/:/odai/etc/ -v /odai/infra/:/odai/infra/ -i <image_id>
+$ sudo docker run -t -d -i <image_id>
 
 
 
