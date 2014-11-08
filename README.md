@@ -11,6 +11,9 @@ $ sudo apt-get install docker.io
 #Clone this repo#
 $ git clone https://github.com/codeforpakistan/infrastructure.git
 
+#Go to the docker directory
+$ cd infrastructure/docker/
+
 #Build#
 $ sudo docker build -t="arizqi/app:v1" .
 
