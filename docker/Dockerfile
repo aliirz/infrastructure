@@ -40,7 +40,7 @@ RUN \
   rm -rf /var/lib/apt/lists/* 
 
 # symlink conf dir
-RUN ln -s /usr/loca/infrastructure/conf/nginx/nginx.conf /etc/nginx/sites-enabled/
+RUN ln -s /usr/local/infrastructure/conf/nginx/nginx.conf /etc/nginx/sites-enabled/
 RUN unlink /etc/nginx/sites-enabled/default
 
 # Define mountable directories.
